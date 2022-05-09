@@ -67,7 +67,7 @@ namespace CSPCoffee
                     select s.Product.Stock;
             foreach (int a in q)
             {
-                for (int i = 1; i <= a; i++)
+                for (int i = 1; i <= a &&i<=10; i++)
                 {
                     comboBox1.Items.Add(i);
                 }
@@ -148,11 +148,11 @@ namespace CSPCoffee
         //定義按鈕定義
         [Category("MSIT老師")]
         [Description("MSIT同學: the value for MSIT")]
-        public string theTextOnButton
-        {
-            get { return btnDelete.Text; }
-            set  { btnDelete.Text = value; }
-        }
+        //public string theTextOnButton
+        //{
+        //    get { return btnDelete.Text; }
+        //    set  { btnDelete.Text = value; }
+        //}
 
         private void CarControl1_SizeChanged(object sender, EventArgs e)
         {

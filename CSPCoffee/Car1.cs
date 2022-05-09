@@ -15,16 +15,19 @@ namespace CSPCoffee
         public Car1()
         {
             InitializeComponent();
-            LoadCouponToListbox();   
-            
+            LoadCouponToListbox();
+            LoadMemberInformation();
         }
 
+     
+        //TODO.購物車功能(付款方式、出貨方式、加購商品推薦、免運費計算、點數折抵消費金) 09
         CoffeeEntities db = new CoffeeEntities();
         int memID = 1;
         int Total = 0;
         int Discount;
         List<int> Coupon = new List<int>();
-             
+
+        #region Page1
         //載入折價卷
         private void LoadCouponToListbox()
         {
@@ -40,10 +43,8 @@ namespace CSPCoffee
             //MessageBox.Show($"折價卷有 {String.Join(", ", Name)}");
             this.splitContainer2.Panel2Collapsed = true;           
 
-        }                    
-
-
-      
+        }                   
+              
 
         //抓該會員的購物明細
         private void button5_Click(object sender, EventArgs e)
@@ -65,6 +66,7 @@ namespace CSPCoffee
                 CarControl1 x = new CarControl1(Name[i]);
                 this.flowLayoutPanel1.Controls.Add(x);
                 x.Size = new Size(1470, 100);
+                x.Tag = Name[i];
                 Total += int.Parse(x.theTextOnlabelCount);
                 this.labelfirstcount.Text = Total.ToString();
                 this.labelTotal.Text = (Total - Discount).ToString();
@@ -76,7 +78,11 @@ namespace CSPCoffee
         private void X_theClick(CarControl1 source)
         {      
             this.flowLayoutPanel1.Controls.Remove(source);
-            MessageBox.Show("刪除成功");
+            //MessageBox.Show("刪除成功");
+            MessageBox.Show(source.Tag.ToString());
+            var product = from p in db.ShoppingCarDetails
+                          where p.ShoppingCarDetialsID == (int)source.Tag
+                          select p;
         }
 
         //修改明細數量時
@@ -90,7 +96,7 @@ namespace CSPCoffee
         private void button2_Click(object sender, EventArgs e)
         {
             this.splitContainer2.Panel2Collapsed = !this.splitContainer2.Panel2Collapsed;
-        }
+        }    
         //使用折價卷
         private void button7_Click(object sender, EventArgs e)
         {
@@ -99,28 +105,66 @@ namespace CSPCoffee
             MessageBox.Show("使用成功!");
             this.labeldiscount.Text = Discount.ToString();
             this.labelTotal.Text = (Total - Discount).ToString();
-        }               
+        }    
 
         //下一頁
         private void button4_Click(object sender, EventArgs e)
         {
-            Car2 car2 = new Car2(this);
-            car2.Show();
-        }
+            tabControl1.SelectedTab = tabControl1.TabPages[1];
+            //Car2 car2 = new Car2(this);
+            //car2.Show();
+        }   
         public int a()
         {
             int aa = memID;
             return aa;
         }
 
-
         //Test
         private void button6_Click(object sender, EventArgs e)
         {
             memID = int.Parse(textBox1.Text);
         }
+        #endregion
 
-        //TODO.購物車功能(付款方式、出貨方式、加購商品推薦、免運費計算、點數折抵消費金) 09
+        #region  Page2
+        private void LoadMemberInformation()
+        {
+            var q = from m in db.ShoppingCarDetails
+                    where m.MemberID == memID
+                    select new
+                    {
+                        Name = m.ShoppingCar.Member.MemberName,
+                        Phone = m.ShoppingCar.Member.MemberPhone,
+                        Email = m.ShoppingCar.Member.MemberEMail,
+                        Address = m.ShoppingCar.Member.MemberAddress
+                    };
+
+            foreach (var a in q)
+            {
+                this.txtName.Text = a.Name;
+                this.txtTel.Text = a.Phone;
+                this.txtEmail.Text = a.Email;
+                this.txtAddress.Text = a.Address;
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages[0];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages[2];
+        }
+
+
+
+
+
+
+        #endregion
+
 
     }
 }
