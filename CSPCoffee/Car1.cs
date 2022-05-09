@@ -163,7 +163,7 @@ namespace CSPCoffee
 
         #region  Page2
         RadioButton r;
-        CheckBox c;
+        RadioButton c;
         private void LoadMemberInformation()
         {
             var q = from m in db.ShoppingCarDetails
@@ -214,12 +214,11 @@ namespace CSPCoffee
             r = sender as RadioButton;
             if (r.Checked == true) { Pay = r.Text; }            
         }
-
-        private void checkBoxFee1_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonFee1_CheckedChanged(object sender, EventArgs e)
         {
-            c = sender as CheckBox;
-            if (c.Checked== true){ Fee = c.Tag.ToString(); };
-        }
+            c = sender as RadioButton;
+            if (c.Checked == true) { Fee = c.Tag.ToString(); };
+        }     
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -257,7 +256,8 @@ namespace CSPCoffee
             }
             else if (int.Parse(labelTotal1.Text) < 1200)
             {
-                label3Fee.Text = checkBoxFee1.Tag.ToString();
+                
+                label3Fee.Text = radioButtonFee1.Tag.ToString();
                 labelFreefee.Visible = false;
             }
 
@@ -296,6 +296,7 @@ namespace CSPCoffee
         {
             tabControl1.SelectedTab = tabControl1.TabPages[1];
         }
+
 
 
         #endregion

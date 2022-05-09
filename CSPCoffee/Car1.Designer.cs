@@ -68,6 +68,7 @@ namespace CSPCoffee
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -84,7 +85,7 @@ namespace CSPCoffee
             this.label25 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label26 = new System.Windows.Forms.Label();
-            this.checkBoxFee1 = new System.Windows.Forms.CheckBox();
+            this.radioButtonFee1 = new System.Windows.Forms.RadioButton();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -92,19 +93,20 @@ namespace CSPCoffee
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.labelFreefee = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label3Fee = new System.Windows.Forms.Label();
+            this.label3Count = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label3FinalTotal = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3Ship = new System.Windows.Forms.Label();
             this.label3Pay = new System.Windows.Forms.Label();
@@ -118,27 +120,29 @@ namespace CSPCoffee
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.label3Fee = new System.Windows.Forms.Label();
-            this.label3FinalTotal = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label3Count = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.labelFreefee = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label65 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -160,12 +164,14 @@ namespace CSPCoffee
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -223,7 +229,7 @@ namespace CSPCoffee
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(557, 129);
+            this.button5.Location = new System.Drawing.Point(621, 104);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 39);
             this.button5.TabIndex = 12;
@@ -276,6 +282,8 @@ namespace CSPCoffee
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.label64);
             this.tabPage1.Controls.Add(this.splitContainer2);
             this.tabPage1.Controls.Add(this.flowLayoutPanel2);
             this.tabPage1.Controls.Add(this.panel1);
@@ -296,7 +304,7 @@ namespace CSPCoffee
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Location = new System.Drawing.Point(188, 616);
+            this.splitContainer2.Location = new System.Drawing.Point(188, 715);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -346,7 +354,7 @@ namespace CSPCoffee
             // 
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel2.Controls.Add(this.label18);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(188, 855);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(188, 954);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1503, 401);
             this.flowLayoutPanel2.TabIndex = 32;
@@ -372,7 +380,7 @@ namespace CSPCoffee
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.labelTotal1);
-            this.panel1.Location = new System.Drawing.Point(1152, 616);
+            this.panel1.Location = new System.Drawing.Point(1152, 715);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 213);
             this.panel1.TabIndex = 31;
@@ -428,12 +436,13 @@ namespace CSPCoffee
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.NavajoWhite;
             this.button4.Location = new System.Drawing.Point(397, 148);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(103, 45);
             this.button4.TabIndex = 9;
             this.button4.Text = "前往結帳";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label8
@@ -460,7 +469,7 @@ namespace CSPCoffee
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label13.Location = new System.Drawing.Point(1051, 18);
+            this.label13.Location = new System.Drawing.Point(1051, 16);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 27);
             this.label13.TabIndex = 30;
@@ -472,7 +481,7 @@ namespace CSPCoffee
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(742, 18);
+            this.label12.Location = new System.Drawing.Point(742, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 26);
             this.label12.TabIndex = 29;
@@ -482,7 +491,7 @@ namespace CSPCoffee
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(1123, 18);
+            this.label11.Location = new System.Drawing.Point(1123, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 27);
             this.label11.TabIndex = 28;
@@ -492,7 +501,7 @@ namespace CSPCoffee
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(816, 18);
+            this.label10.Location = new System.Drawing.Point(816, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(205, 27);
             this.label10.TabIndex = 27;
@@ -504,7 +513,7 @@ namespace CSPCoffee
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(548, 18);
+            this.label9.Location = new System.Drawing.Point(548, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(164, 26);
             this.label9.TabIndex = 26;
@@ -514,7 +523,7 @@ namespace CSPCoffee
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(188, 156);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(188, 154);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1503, 439);
             this.flowLayoutPanel1.TabIndex = 24;
@@ -536,7 +545,7 @@ namespace CSPCoffee
             this.tableLayoutPanel1.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 4, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(194, 77);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(194, 75);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -623,6 +632,13 @@ namespace CSPCoffee
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "付款與運送方式";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.Location = new System.Drawing.Point(78, 576);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(63, 328);
+            this.label57.TabIndex = 36;
             // 
             // button1
             // 
@@ -781,7 +797,7 @@ namespace CSPCoffee
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.checkBoxFee1);
+            this.splitContainer3.Panel2.Controls.Add(this.radioButtonFee1);
             this.splitContainer3.Panel2.Controls.Add(this.label27);
             this.splitContainer3.Size = new System.Drawing.Size(1084, 268);
             this.splitContainer3.SplitterDistance = 522;
@@ -798,18 +814,19 @@ namespace CSPCoffee
             this.label26.TabIndex = 0;
             this.label26.Text = "付款方式";
             // 
-            // checkBoxFee1
+            // radioButtonFee1
             // 
-            this.checkBoxFee1.AutoSize = true;
-            this.checkBoxFee1.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBoxFee1.Location = new System.Drawing.Point(35, 111);
-            this.checkBoxFee1.Name = "checkBoxFee1";
-            this.checkBoxFee1.Size = new System.Drawing.Size(242, 38);
-            this.checkBoxFee1.TabIndex = 3;
-            this.checkBoxFee1.Tag = "80";
-            this.checkBoxFee1.Text = "宅配 (運費$80元)";
-            this.checkBoxFee1.UseVisualStyleBackColor = true;
-            this.checkBoxFee1.CheckedChanged += new System.EventHandler(this.checkBoxFee1_CheckedChanged);
+            this.radioButtonFee1.AutoSize = true;
+            this.radioButtonFee1.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.radioButtonFee1.Location = new System.Drawing.Point(37, 95);
+            this.radioButtonFee1.Name = "radioButtonFee1";
+            this.radioButtonFee1.Size = new System.Drawing.Size(241, 38);
+            this.radioButtonFee1.TabIndex = 4;
+            this.radioButtonFee1.TabStop = true;
+            this.radioButtonFee1.Tag = "80";
+            this.radioButtonFee1.Text = "宅配 (運費$80元)";
+            this.radioButtonFee1.UseVisualStyleBackColor = true;
+            this.radioButtonFee1.CheckedChanged += new System.EventHandler(this.radioButtonFee1_CheckedChanged);
             // 
             // label27
             // 
@@ -911,6 +928,115 @@ namespace CSPCoffee
             this.tabPage3.Text = "訂單確認";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // splitContainer4
+            // 
+            this.splitContainer4.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer4.Location = new System.Drawing.Point(188, 717);
+            this.splitContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.splitContainer4.Panel1.Controls.Add(this.labelFreefee);
+            this.splitContainer4.Panel1.Controls.Add(this.label58);
+            this.splitContainer4.Panel1.Controls.Add(this.label56);
+            this.splitContainer4.Panel1.Controls.Add(this.label3Fee);
+            this.splitContainer4.Panel1.Controls.Add(this.label3Count);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.splitContainer4.Panel2.Controls.Add(this.label55);
+            this.splitContainer4.Panel2.Controls.Add(this.label3FinalTotal);
+            this.splitContainer4.Size = new System.Drawing.Size(1503, 243);
+            this.splitContainer4.SplitterDistance = 155;
+            this.splitContainer4.TabIndex = 6;
+            // 
+            // labelFreefee
+            // 
+            this.labelFreefee.AutoSize = true;
+            this.labelFreefee.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelFreefee.Location = new System.Drawing.Point(1191, 98);
+            this.labelFreefee.Name = "labelFreefee";
+            this.labelFreefee.Size = new System.Drawing.Size(305, 44);
+            this.labelFreefee.TabIndex = 6;
+            this.labelFreefee.Text = "(滿1,200元免運費)";
+            this.labelFreefee.Visible = false;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label58.Location = new System.Drawing.Point(746, 19);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(107, 44);
+            this.label58.TabIndex = 4;
+            this.label58.Text = "小計 :";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label56.Location = new System.Drawing.Point(746, 89);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(107, 44);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "運費 :";
+            // 
+            // label3Fee
+            // 
+            this.label3Fee.AutoSize = true;
+            this.label3Fee.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3Fee.Location = new System.Drawing.Point(873, 89);
+            this.label3Fee.Name = "label3Fee";
+            this.label3Fee.Size = new System.Drawing.Size(36, 44);
+            this.label3Fee.TabIndex = 2;
+            this.label3Fee.Text = "_";
+            // 
+            // label3Count
+            // 
+            this.label3Count.AutoSize = true;
+            this.label3Count.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3Count.Location = new System.Drawing.Point(873, 19);
+            this.label3Count.Name = "label3Count";
+            this.label3Count.Size = new System.Drawing.Size(36, 44);
+            this.label3Count.TabIndex = 5;
+            this.label3Count.Text = "_";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label55.Location = new System.Drawing.Point(641, 22);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(212, 44);
+            this.label55.TabIndex = 0;
+            this.label55.Text = "訂單總金額 :";
+            // 
+            // label3FinalTotal
+            // 
+            this.label3FinalTotal.AutoSize = true;
+            this.label3FinalTotal.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3FinalTotal.Location = new System.Drawing.Point(873, 22);
+            this.label3FinalTotal.Name = "label3FinalTotal";
+            this.label3FinalTotal.Size = new System.Drawing.Size(36, 44);
+            this.label3FinalTotal.TabIndex = 3;
+            this.label3FinalTotal.Text = "_";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label59.ForeColor = System.Drawing.Color.Black;
+            this.label59.Location = new System.Drawing.Point(1051, 18);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(42, 27);
+            this.label59.TabIndex = 43;
+            this.label59.Text = ">>";
+            // 
             // label54
             // 
             this.label54.AutoSize = true;
@@ -922,144 +1048,51 @@ namespace CSPCoffee
             this.label54.TabIndex = 39;
             this.label54.Text = "<<請確認以下資訊是否正確>>";
             // 
-            // label45
+            // label60
             // 
-            this.label45.AutoSize = true;
-            this.label45.BackColor = System.Drawing.Color.Orange;
-            this.label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label45.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label45.Location = new System.Drawing.Point(188, 1074);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(280, 39);
-            this.label45.TabIndex = 1;
-            this.label45.Text = "付款方式及寄送資訊";
+            this.label60.AutoSize = true;
+            this.label60.BackColor = System.Drawing.Color.Transparent;
+            this.label60.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label60.ForeColor = System.Drawing.Color.Black;
+            this.label60.Location = new System.Drawing.Point(742, 18);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(42, 27);
+            this.label60.TabIndex = 42;
+            this.label60.Text = ">>";
             // 
-            // label53
+            // label61
             // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(184, 1093);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(1507, 20);
-            this.label53.TabIndex = 38;
-            this.label53.Text = resources.GetString("label53.Text");
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label61.ForeColor = System.Drawing.Color.Red;
+            this.label61.Location = new System.Drawing.Point(1123, 18);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(143, 26);
+            this.label61.TabIndex = 41;
+            this.label61.Text = "(3)    訂單確認";
             // 
-            // label51
+            // label62
             // 
-            this.label51.AutoSize = true;
-            this.label51.BackColor = System.Drawing.Color.Orange;
-            this.label51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label51.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label51.Location = new System.Drawing.Point(188, 143);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(135, 39);
-            this.label51.TabIndex = 36;
-            this.label51.Text = "購物明細";
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label62.ForeColor = System.Drawing.Color.Black;
+            this.label62.Location = new System.Drawing.Point(816, 18);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(205, 27);
+            this.label62.TabIndex = 40;
+            this.label62.Text = "(2)    付款與運送方式";
             // 
-            // label52
+            // label63
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(184, 162);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(1514, 20);
-            this.label52.TabIndex = 37;
-            this.label52.Text = resources.GetString("label52.Text");
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(1221, 1538);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(196, 59);
-            this.button9.TabIndex = 34;
-            this.button9.Text = "上一步";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(188, 299);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1503, 439);
-            this.flowLayoutPanel3.TabIndex = 33;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Bisque;
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel2.Controls.Add(this.label39, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label40, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label46, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label47, 3, 0);
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(194, 200);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1470, 61);
-            this.tableLayoutPanel2.TabIndex = 32;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label39.Location = new System.Drawing.Point(957, 1);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(140, 59);
-            this.label39.TabIndex = 1;
-            this.label39.Text = "單價";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label40.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label40.Location = new System.Drawing.Point(4, 1);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(946, 59);
-            this.label40.TabIndex = 1;
-            this.label40.Text = "商品資訊";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label46.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label46.Location = new System.Drawing.Point(1104, 1);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(140, 59);
-            this.label46.TabIndex = 2;
-            this.label46.Text = "數量";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label47.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label47.Location = new System.Drawing.Point(1251, 1);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(215, 59);
-            this.label47.TabIndex = 3;
-            this.label47.Text = "小計";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(1475, 1537);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(196, 59);
-            this.button8.TabIndex = 31;
-            this.button8.Text = "送出訂單";
-            this.button8.UseVisualStyleBackColor = true;
+            this.label63.AutoSize = true;
+            this.label63.BackColor = System.Drawing.Color.Transparent;
+            this.label63.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label63.ForeColor = System.Drawing.Color.Black;
+            this.label63.Location = new System.Drawing.Point(548, 18);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(163, 27);
+            this.label63.TabIndex = 39;
+            this.label63.Text = "(1)    確認購物車";
             // 
             // panel3
             // 
@@ -1076,7 +1109,7 @@ namespace CSPCoffee
             this.panel3.Controls.Add(this.label42);
             this.panel3.Controls.Add(this.label43);
             this.panel3.Controls.Add(this.label44);
-            this.panel3.Location = new System.Drawing.Point(188, 1127);
+            this.panel3.Location = new System.Drawing.Point(188, 1066);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1503, 365);
             this.panel3.TabIndex = 30;
@@ -1201,6 +1234,152 @@ namespace CSPCoffee
             this.label44.TabIndex = 2;
             this.label44.Text = "姓名 :";
             // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.Orange;
+            this.label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label45.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label45.Location = new System.Drawing.Point(188, 1012);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(280, 39);
+            this.label45.TabIndex = 1;
+            this.label45.Text = "付款方式及寄送資訊";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(184, 1032);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(1507, 20);
+            this.label53.TabIndex = 38;
+            this.label53.Text = resources.GetString("label53.Text");
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.BackColor = System.Drawing.Color.Orange;
+            this.label51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label51.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label51.Location = new System.Drawing.Point(188, 142);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(135, 39);
+            this.label51.TabIndex = 36;
+            this.label51.Text = "購物明細";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(184, 162);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(1514, 20);
+            this.label52.TabIndex = 37;
+            this.label52.Text = resources.GetString("label52.Text");
+            // 
+            // label50
+            // 
+            this.label50.Location = new System.Drawing.Point(60, 1295);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(63, 328);
+            this.label50.TabIndex = 35;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1226, 1501);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(196, 59);
+            this.button9.TabIndex = 34;
+            this.button9.Text = "上一步";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(188, 271);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1503, 439);
+            this.flowLayoutPanel3.TabIndex = 33;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Bisque;
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel2.Controls.Add(this.label39, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label40, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label46, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label47, 3, 0);
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(194, 200);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1470, 61);
+            this.tableLayoutPanel2.TabIndex = 32;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label39.Location = new System.Drawing.Point(957, 1);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(140, 59);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "單價";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label40.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label40.Location = new System.Drawing.Point(4, 1);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(946, 59);
+            this.label40.TabIndex = 1;
+            this.label40.Text = "商品資訊";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label46.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label46.Location = new System.Drawing.Point(1104, 1);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(140, 59);
+            this.label46.TabIndex = 2;
+            this.label46.Text = "數量";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label47.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label47.Location = new System.Drawing.Point(1251, 1);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(215, 59);
+            this.label47.TabIndex = 3;
+            this.label47.Text = "小計";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1480, 1500);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(196, 59);
+            this.button8.TabIndex = 31;
+            this.button8.Text = "送出訂單";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1266,174 +1445,42 @@ namespace CSPCoffee
             this.label14.Size = new System.Drawing.Size(41, 132);
             this.label14.TabIndex = 23;
             // 
-            // splitContainer4
+            // label64
             // 
-            this.splitContainer4.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer4.Location = new System.Drawing.Point(188, 745);
-            this.splitContainer4.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.label64.Location = new System.Drawing.Point(39, 1115);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(63, 328);
+            this.label64.TabIndex = 37;
             // 
-            // splitContainer4.Panel1
+            // panel4
             // 
-            this.splitContainer4.Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.splitContainer4.Panel1.Controls.Add(this.labelFreefee);
-            this.splitContainer4.Panel1.Controls.Add(this.label58);
-            this.splitContainer4.Panel1.Controls.Add(this.label56);
-            this.splitContainer4.Panel1.Controls.Add(this.label3Fee);
-            this.splitContainer4.Panel1.Controls.Add(this.label3Count);
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label65);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Location = new System.Drawing.Point(188, 599);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1503, 74);
+            this.panel4.TabIndex = 38;
             // 
-            // splitContainer4.Panel2
+            // pictureBox1
             // 
-            this.splitContainer4.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.splitContainer4.Panel2.Controls.Add(this.label55);
-            this.splitContainer4.Panel2.Controls.Add(this.label3FinalTotal);
-            this.splitContainer4.Size = new System.Drawing.Size(1503, 243);
-            this.splitContainer4.SplitterDistance = 155;
-            this.splitContainer4.TabIndex = 6;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(26, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // label3Fee
+            // label65
             // 
-            this.label3Fee.AutoSize = true;
-            this.label3Fee.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3Fee.Location = new System.Drawing.Point(873, 89);
-            this.label3Fee.Name = "label3Fee";
-            this.label3Fee.Size = new System.Drawing.Size(36, 44);
-            this.label3Fee.TabIndex = 2;
-            this.label3Fee.Text = "_";
-            // 
-            // label3FinalTotal
-            // 
-            this.label3FinalTotal.AutoSize = true;
-            this.label3FinalTotal.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3FinalTotal.Location = new System.Drawing.Point(873, 22);
-            this.label3FinalTotal.Name = "label3FinalTotal";
-            this.label3FinalTotal.Size = new System.Drawing.Size(36, 44);
-            this.label3FinalTotal.TabIndex = 3;
-            this.label3FinalTotal.Text = "_";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label56.Location = new System.Drawing.Point(746, 89);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(107, 44);
-            this.label56.TabIndex = 1;
-            this.label56.Text = "運費 :";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label55.Location = new System.Drawing.Point(641, 22);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(212, 44);
-            this.label55.TabIndex = 0;
-            this.label55.Text = "訂單總金額 :";
-            // 
-            // label3Count
-            // 
-            this.label3Count.AutoSize = true;
-            this.label3Count.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3Count.Location = new System.Drawing.Point(873, 19);
-            this.label3Count.Name = "label3Count";
-            this.label3Count.Size = new System.Drawing.Size(36, 44);
-            this.label3Count.TabIndex = 5;
-            this.label3Count.Text = "_";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label58.Location = new System.Drawing.Point(746, 19);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(107, 44);
-            this.label58.TabIndex = 4;
-            this.label58.Text = "小計 :";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label59.ForeColor = System.Drawing.Color.Black;
-            this.label59.Location = new System.Drawing.Point(1051, 18);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(42, 27);
-            this.label59.TabIndex = 43;
-            this.label59.Text = ">>";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.BackColor = System.Drawing.Color.Transparent;
-            this.label60.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label60.ForeColor = System.Drawing.Color.Black;
-            this.label60.Location = new System.Drawing.Point(742, 18);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(42, 27);
-            this.label60.TabIndex = 42;
-            this.label60.Text = ">>";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label61.ForeColor = System.Drawing.Color.Red;
-            this.label61.Location = new System.Drawing.Point(1123, 18);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(143, 26);
-            this.label61.TabIndex = 41;
-            this.label61.Text = "(3)    訂單確認";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label62.ForeColor = System.Drawing.Color.Black;
-            this.label62.Location = new System.Drawing.Point(816, 18);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(205, 27);
-            this.label62.TabIndex = 40;
-            this.label62.Text = "(2)    付款與運送方式";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.BackColor = System.Drawing.Color.Transparent;
-            this.label63.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label63.ForeColor = System.Drawing.Color.Black;
-            this.label63.Location = new System.Drawing.Point(548, 18);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(163, 27);
-            this.label63.TabIndex = 39;
-            this.label63.Text = "(1)    確認購物車";
-            // 
-            // label50
-            // 
-            this.label50.Location = new System.Drawing.Point(60, 1323);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(63, 328);
-            this.label50.TabIndex = 35;
-            // 
-            // label57
-            // 
-            this.label57.Location = new System.Drawing.Point(78, 576);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(63, 328);
-            this.label57.TabIndex = 36;
-            // 
-            // labelFreefee
-            // 
-            this.labelFreefee.AutoSize = true;
-            this.labelFreefee.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelFreefee.Location = new System.Drawing.Point(1191, 98);
-            this.labelFreefee.Name = "labelFreefee";
-            this.labelFreefee.Size = new System.Drawing.Size(305, 44);
-            this.labelFreefee.TabIndex = 6;
-            this.labelFreefee.Text = "(滿1,200元免運費)";
-            this.labelFreefee.Visible = false;
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label65.Location = new System.Drawing.Point(108, 22);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(383, 30);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "滿$1,200 元，即可享受宅配免運費";
             // 
             // Car1
             // 
@@ -1476,16 +1523,19 @@ namespace CSPCoffee
             this.splitContainer3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1546,7 +1596,6 @@ namespace CSPCoffee
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.CheckBox checkBoxFee1;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -1600,5 +1649,10 @@ namespace CSPCoffee
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label labelFreefee;
+        private System.Windows.Forms.RadioButton radioButtonFee1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
     }
 }
