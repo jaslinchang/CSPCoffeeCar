@@ -35,5 +35,12 @@ namespace CSPCoffee
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ShoppingCar> ShoppingCars { get; set; }
         public virtual DbSet<ShoppingCarDetail> ShoppingCarDetails { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Coffee> Coffees { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Process> Processes { get; set; }
+        public virtual DbSet<Roasting> Roastings { get; set; }
     }
 }

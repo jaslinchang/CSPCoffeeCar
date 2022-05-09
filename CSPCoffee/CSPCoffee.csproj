@@ -79,13 +79,22 @@
     <Compile Include="CarControl1.Designer.cs">
       <DependentUpon>CarControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarControl2.Designer.cs">
+      <DependentUpon>CarControl2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>NWModel.tt</DependentUpon>
+      <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CODataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CODataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Coffee.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>COModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Coupon.cs">
       <DependentUpon>COModel.tt</DependentUpon>
@@ -147,17 +159,41 @@
     <Compile Include="Order_Detail.cs">
       <DependentUpon>NWModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Package.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PDcontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PDcontrol.designer.cs">
+      <DependentUpon>PDcontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Photo.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PhotoDetail.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Process.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Productdetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productdetail.designer.cs">
+      <DependentUpon>Productdetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roasting.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCar.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
@@ -176,8 +212,17 @@
     <EmbeddedResource Include="CarControl1.resx">
       <DependentUpon>CarControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarControl2.resx">
+      <DependentUpon>CarControl2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDcontrol.resx">
+      <DependentUpon>PDcontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productdetail.resx">
+      <DependentUpon>Productdetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

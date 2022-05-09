@@ -138,7 +138,7 @@ namespace CSPCoffee
         #endregion
        
 
-        //定義label大小
+        //定義元件大小
         public override Size MinimumSize
         {
             get {return new Size(1138, 86);}

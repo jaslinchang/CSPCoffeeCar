@@ -13,10 +13,15 @@ namespace CSPCoffee
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             //Application.Run(new Form1());
+
+            //int productID = 1;
+            //Application.Run(new Productdetail(productID));
+
             Application.Run(new Car1());
             //Application.Run(new Car2());
         }

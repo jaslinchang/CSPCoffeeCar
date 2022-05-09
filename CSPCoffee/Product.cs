@@ -39,5 +39,8 @@ namespace CSPCoffee
         public virtual ICollection<PhotoDetail> PhotoDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCarDetail> ShoppingCarDetails { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual Coffee Coffee { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

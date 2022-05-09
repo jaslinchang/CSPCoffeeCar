@@ -22,7 +22,7 @@ namespace CSPCoffee
         internal void MyInitializer()
         {
             var q = db.Products.Select(x => x.ProductName).ToArray();
-            var q1 = db.Categories.Select(x => x.CategoryName).ToArray();
+            var q1 = db.Categories.Select(x => x.CategoriesName).ToArray();
 
             AutoCompleteStringCollection strings = new AutoCompleteStringCollection();
 

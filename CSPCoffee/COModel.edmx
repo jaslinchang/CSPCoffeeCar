@@ -4,7 +4,36 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CoffeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CoffeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoriesName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="CoffeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="CoffeeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="RoastingID" Type="int" Nullable="false" />
+          <Property Name="ProcessID" Type="int" Nullable="false" />
+          <Property Name="PackageID" Type="int" Nullable="false" />
+          <Property Name="ConstellationID" Type="int" />
+          <Property Name="RainForest" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContinentID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Coupon">
           <Key>
             <PropertyRef Name="CouponID" />
@@ -60,6 +89,20 @@
           <Property Name="OrderAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CouponID" Type="int" />
         </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageID" />
+          </Key>
+          <Property Name="PackageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="PhotoDetails">
           <Key>
             <PropertyRef Name="PhotoDetailsID" />
@@ -75,6 +118,13 @@
           <Property Name="PhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Photo" Type="image" />
         </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="ProcessID" />
+          </Key>
+          <Property Name="ProcessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -89,6 +139,13 @@
           <Property Name="ClickCount" Type="int" />
           <Property Name="TakeDown" Type="bit" Nullable="false" />
           <Property Name="Star" Type="float" />
+        </EntityType>
+        <EntityType Name="Roasting">
+          <Key>
+            <PropertyRef Name="RoastingID" />
+          </Key>
+          <Property Name="RoastingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoastingName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingCar">
           <Key>
@@ -106,6 +163,66 @@
           <Property Name="ProductsID" Type="int" />
           <Property Name="Quantity" Type="int" />
         </EntityType>
+        <Association Name="FK_Coffee_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Process">
+          <End Role="Process" Type="Self.Process" Multiplicity="1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Process">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Products1">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Roasting1">
+          <End Role="Roasting" Type="Self.Roasting" Multiplicity="1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roasting">
+              <PropertyRef Name="RoastingID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="RoastingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CouponDetail_Coupon">
           <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
           <End Role="CouponDetail" Type="Self.CouponDetail" Multiplicity="*" />
@@ -166,6 +283,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Orders_Payments">
+          <End Role="Payments" Type="Self.Payments" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payments">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PhotoDetails_Photos">
           <End Role="Photos" Type="Self.Photos" Multiplicity="1" />
           <End Role="PhotoDetails" Type="Self.PhotoDetails" Multiplicity="*" />
@@ -187,6 +316,30 @@
             </Principal>
             <Dependent Role="PhotoDetails">
               <PropertyRef Name="PhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CountryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -227,16 +380,43 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CoffeeModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coffee" EntityType="Self.Coffee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Coupon" EntityType="Self.Coupon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CouponDetail" EntityType="Self.CouponDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhotoDetails" EntityType="Self.PhotoDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Process" EntityType="Self.Process" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roasting" EntityType="Self.Roasting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShoppingCar" EntityType="Self.ShoppingCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShoppingCarDetail" EntityType="Self.ShoppingCarDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Coffee_Country" Association="Self.FK_Coffee_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Package" Association="Self.FK_Coffee_Package">
+            <End Role="Package" EntitySet="Package" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Process" Association="Self.FK_Coffee_Process">
+            <End Role="Process" EntitySet="Process" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Products1" Association="Self.FK_Coffee_Products1">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Roasting1" Association="Self.FK_Coffee_Roasting1">
+            <End Role="Roasting" EntitySet="Roasting" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
           <AssociationSet Name="FK_CouponDetail_Coupon" Association="Self.FK_CouponDetail_Coupon">
             <End Role="Coupon" EntitySet="Coupon" />
             <End Role="CouponDetail" EntitySet="CouponDetail" />
@@ -257,6 +437,10 @@
             <End Role="Members" EntitySet="Members" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
+          <AssociationSet Name="FK_Orders_Payments" Association="Self.FK_Orders_Payments">
+            <End Role="Payments" EntitySet="Payments" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
           <AssociationSet Name="FK_PhotoDetails_Photos" Association="Self.FK_PhotoDetails_Photos">
             <End Role="Photos" EntitySet="Photos" />
             <End Role="PhotoDetails" EntitySet="PhotoDetails" />
@@ -264,6 +448,14 @@
           <AssociationSet Name="FK_PhotoDetails_Products" Association="Self.FK_PhotoDetails_Products">
             <End Role="Products" EntitySet="Products" />
             <End Role="PhotoDetails" EntitySet="PhotoDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Country" Association="Self.FK_Products_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_ShoppingCar_Members" Association="Self.FK_ShoppingCar_Members">
             <End Role="Members" EntitySet="Members" />
@@ -278,8 +470,7 @@
             <End Role="ShoppingCarDetail" EntitySet="ShoppingCarDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoffeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -347,6 +538,7 @@
           <Property Name="CouponID" Type="Int32" />
           <NavigationProperty Name="Member" Relationship="Self.FK_Orders_Members" FromRole="Orders" ToRole="Members" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders1" FromRole="Orders" ToRole="OrderDetails" />
+          <NavigationProperty Name="Payment" Relationship="CoffeeModel.FK_Orders_Payments" FromRole="Order" ToRole="Payment" />
         </EntityType>
         <EntityType Name="PhotoDetail">
           <Key>
@@ -383,6 +575,9 @@
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products1" FromRole="Products" ToRole="OrderDetails" />
           <NavigationProperty Name="PhotoDetails" Relationship="Self.FK_PhotoDetails_Products" FromRole="Products" ToRole="PhotoDetails" />
           <NavigationProperty Name="ShoppingCarDetails" Relationship="Self.FK_ShoppingCarDetail_Products" FromRole="Products" ToRole="ShoppingCarDetail" />
+          <NavigationProperty Name="Category" Relationship="CoffeeModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Coffee" Relationship="CoffeeModel.FK_Coffee_Products1" FromRole="Product" ToRole="Coffee" />
+          <NavigationProperty Name="Country" Relationship="CoffeeModel.FK_Products_Country" FromRole="Product" ToRole="Country" />
         </EntityType>
         <EntityType Name="ShoppingCar">
           <Key>
@@ -575,7 +770,211 @@
             <End Role="ShoppingCar" EntitySet="ShoppingCars" />
             <End Role="ShoppingCarDetail" EntitySet="ShoppingCarDetails" />
           </AssociationSet>
+          <EntitySet Name="Payments" EntityType="CoffeeModel.Payment" />
+          <AssociationSet Name="FK_Orders_Payments" Association="CoffeeModel.FK_Orders_Payments">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="CoffeeModel.Category" />
+          <EntitySet Name="Coffees" EntityType="CoffeeModel.Coffee" />
+          <EntitySet Name="Countries" EntityType="CoffeeModel.Country" />
+          <AssociationSet Name="FK_Products_Categories" Association="CoffeeModel.FK_Products_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Country" Association="CoffeeModel.FK_Coffee_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Coffee" EntitySet="Coffees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Products1" Association="CoffeeModel.FK_Coffee_Products1">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Coffee" EntitySet="Coffees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Country" Association="CoffeeModel.FK_Products_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Packages" EntityType="CoffeeModel.Package" />
+          <EntitySet Name="Processes" EntityType="CoffeeModel.Process" />
+          <EntitySet Name="Roastings" EntityType="CoffeeModel.Roasting" />
+          <AssociationSet Name="FK_Coffee_Package" Association="CoffeeModel.FK_Coffee_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Coffee" EntitySet="Coffees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Process" Association="CoffeeModel.FK_Coffee_Process">
+            <End Role="Process" EntitySet="Processes" />
+            <End Role="Coffee" EntitySet="Coffees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Roasting1" Association="CoffeeModel.FK_Coffee_Roasting1">
+            <End Role="Roasting" EntitySet="Roastings" />
+            <End Role="Coffee" EntitySet="Coffees" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payment1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CoffeeModel.FK_Orders_Payments" FromRole="Payment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Orders_Payments">
+          <End Type="CoffeeModel.Payment" Role="Payment" Multiplicity="1" />
+          <End Type="CoffeeModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoriesName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="CoffeeModel.FK_Products_Categories" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="CoffeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="CoffeeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="RoastingID" Type="Int32" Nullable="false" />
+          <Property Name="ProcessID" Type="Int32" Nullable="false" />
+          <Property Name="PackageID" Type="Int32" Nullable="false" />
+          <Property Name="ConstellationID" Type="Int32" />
+          <Property Name="RainForest" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="CoffeeModel.FK_Coffee_Country" FromRole="Coffee" ToRole="Country" />
+          <NavigationProperty Name="Product" Relationship="CoffeeModel.FK_Coffee_Products1" FromRole="Coffee" ToRole="Product" />
+          <NavigationProperty Name="Package" Relationship="CoffeeModel.FK_Coffee_Package" FromRole="Coffee" ToRole="Package" />
+          <NavigationProperty Name="Process" Relationship="CoffeeModel.FK_Coffee_Process" FromRole="Coffee" ToRole="Process" />
+          <NavigationProperty Name="Roasting" Relationship="CoffeeModel.FK_Coffee_Roasting1" FromRole="Coffee" ToRole="Roasting" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContinentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Coffees" Relationship="CoffeeModel.FK_Coffee_Country" FromRole="Country" ToRole="Coffee" />
+          <NavigationProperty Name="Products" Relationship="CoffeeModel.FK_Products_Country" FromRole="Country" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Type="CoffeeModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="CoffeeModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Country">
+          <End Type="CoffeeModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="CoffeeModel.Coffee" Role="Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Products1">
+          <End Type="CoffeeModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="CoffeeModel.Coffee" Role="Coffee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Country">
+          <End Type="CoffeeModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="CoffeeModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageID" />
+          </Key>
+          <Property Name="PackageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Coffees" Relationship="CoffeeModel.FK_Coffee_Package" FromRole="Package" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="ProcessID" />
+          </Key>
+          <Property Name="ProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Coffees" Relationship="CoffeeModel.FK_Coffee_Process" FromRole="Process" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="Roasting">
+          <Key>
+            <PropertyRef Name="RoastingID" />
+          </Key>
+          <Property Name="RoastingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoastingName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Coffees" Relationship="CoffeeModel.FK_Coffee_Roasting1" FromRole="Roasting" ToRole="Coffee" />
+        </EntityType>
+        <Association Name="FK_Coffee_Package">
+          <End Type="CoffeeModel.Package" Role="Package" Multiplicity="1" />
+          <End Type="CoffeeModel.Coffee" Role="Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Process">
+          <End Type="CoffeeModel.Process" Role="Process" Multiplicity="1" />
+          <End Type="CoffeeModel.Coffee" Role="Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Process">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Roasting1">
+          <End Type="CoffeeModel.Roasting" Role="Roasting" Multiplicity="1" />
+          <End Type="CoffeeModel.Coffee" Role="Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roasting">
+              <PropertyRef Name="RoastingID" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="RoastingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -690,6 +1089,70 @@
                 <ScalarProperty Name="MemberID" ColumnName="MemberID" />
                 <ScalarProperty Name="ProductsID" ColumnName="ProductsID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="CoffeeModel.Payment">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Payment1" ColumnName="Payment" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CoffeeModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoriesName" ColumnName="CategoriesName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coffees">
+            <EntityTypeMapping TypeName="CoffeeModel.Coffee">
+              <MappingFragment StoreEntitySet="Coffee">
+                <ScalarProperty Name="RainForest" ColumnName="RainForest" />
+                <ScalarProperty Name="ConstellationID" ColumnName="ConstellationID" />
+                <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="RoastingID" ColumnName="RoastingID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CoffeeName" ColumnName="CoffeeName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CoffeeID" ColumnName="CoffeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="CoffeeModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="CoffeeModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processes">
+            <EntityTypeMapping TypeName="CoffeeModel.Process">
+              <MappingFragment StoreEntitySet="Process">
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roastings">
+            <EntityTypeMapping TypeName="CoffeeModel.Roasting">
+              <MappingFragment StoreEntitySet="Roasting">
+                <ScalarProperty Name="RoastingName" ColumnName="RoastingName" />
+                <ScalarProperty Name="RoastingID" ColumnName="RoastingID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
