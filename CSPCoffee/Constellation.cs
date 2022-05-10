@@ -12,23 +12,19 @@ namespace CSPCoffee
     using System;
     using System.Collections.Generic;
     
-    public partial class Country
+    public partial class Constellation
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Country()
+        public Constellation()
         {
             this.Coffees = new HashSet<Coffee>();
-            this.Products = new HashSet<Product>();
         }
     
-        public int CountryID { get; set; }
-        public string CountryName { get; set; }
-        public int ContinentID { get; set; }
+        public int ConstellationID { get; set; }
+        public string ConstellationName { get; set; }
+        public string ConstellationDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Coffee> Coffees { get; set; }
-        public virtual Continent Continent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
     }
 }

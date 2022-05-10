@@ -25,23 +25,35 @@ namespace CSPCoffee
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Coupon> Coupons { get; set; }
-        public virtual DbSet<CouponDetail> CouponDetails { get; set; }
-        public virtual DbSet<Member> Members { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<PhotoDetail> PhotoDetails { get; set; }
-        public virtual DbSet<Photo> Photos { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ShoppingCar> ShoppingCars { get; set; }
-        public virtual DbSet<ShoppingCarDetail> ShoppingCarDetails { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<AnswerTableDetail> AnswerTableDetails { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Coffee> Coffees { get; set; }
-        public virtual DbSet<Country> Countries { get; set; }
-        public virtual DbSet<Package> Packages { get; set; }
-        public virtual DbSet<Process> Processes { get; set; }
-        public virtual DbSet<Roasting> Roastings { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Constellation> Constellations { get; set; }
         public virtual DbSet<Continent> Continents { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Coupon> Coupons { get; set; }
+        public virtual DbSet<CouponDetail> CouponDetails { get; set; }
+        public virtual DbSet<IntroducePhoto> IntroducePhotos { get; set; }
+        public virtual DbSet<Introduce> Introduces { get; set; }
+        public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<MyLike> MyLikes { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderState> OrderStates { get; set; }
+        public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<PhotoDetail> PhotoDetails { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
+        public virtual DbSet<Process> Processes { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Qquestionnaire> Qquestionnaires { get; set; }
+        public virtual DbSet<QuestionTable> QuestionTables { get; set; }
+        public virtual DbSet<QuestionTableDetail> QuestionTableDetails { get; set; }
+        public virtual DbSet<Roasting> Roastings { get; set; }
+        public virtual DbSet<ShoppingCar> ShoppingCars { get; set; }
+        public virtual DbSet<ShoppingCarDetail> ShoppingCarDetails { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

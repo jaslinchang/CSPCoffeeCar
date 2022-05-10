@@ -17,6 +17,7 @@ namespace CSPCoffee
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
+            this.Comments = new HashSet<Comment>();
             this.OrderDetails = new HashSet<OrderDetail>();
         }
     
@@ -28,9 +29,12 @@ namespace CSPCoffee
         public string OrderAddress { get; set; }
         public Nullable<int> CouponID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual Member Member { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual OrderState OrderState { get; set; }
         public virtual Payment Payment { get; set; }
     }
 }

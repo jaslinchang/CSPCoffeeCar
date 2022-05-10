@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerTableDetail.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Car1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Coffee.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="COModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +107,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>COModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Constellation.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Continent.cs">
       <DependentUpon>COModel.tt</DependentUpon>
@@ -123,7 +135,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Introduce.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntroducePhoto.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Member.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyLike.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NWModel.Context.cs">
@@ -145,6 +166,9 @@
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderDetail.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderState.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Order_Detail.cs">
@@ -182,6 +206,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qquestionnaire.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionTable.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionTableDetail.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Roasting.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
@@ -189,6 +222,9 @@
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCarDetail.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Car1.resx">

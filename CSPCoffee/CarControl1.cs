@@ -58,7 +58,7 @@ namespace CSPCoffee
 
             foreach (var ss in q)
             {
-                this.labelPrice.Text = ss.ToString();
+                this.labelPrice.Text = $"{ss:c0}";
             }
         }
         private void LoadComobox(int ID)
@@ -68,7 +68,7 @@ namespace CSPCoffee
                     select s.Product.Stock;
             foreach (int a in q)
             {
-                for (int i = 1; i <= a &&i<=10; i++)
+                for (decimal i = 1; i <= a &&i<=10; i++)
                 {
                     comboBox1.Items.Add(i);
                 }
@@ -86,9 +86,9 @@ namespace CSPCoffee
         }
         private void LoadlabelCount()
         {
-            int price = int.Parse(this.labelPrice.Text);
-            int quantity = int.Parse(comboBox1.Text);
-            this.labelCount.Text = $"{price * quantity}";
+            decimal price = decimal.Parse(this.labelPrice.Text, System.Globalization.NumberStyles.Currency);
+            decimal quantity = decimal.Parse(comboBox1.Text);
+            this.labelCount.Text = $"{price * quantity:c0}";
         }
         private void LoadlabelStock(int ID)
         {
@@ -101,9 +101,9 @@ namespace CSPCoffee
             }
         }
         private void LoadPicture(int ID)
-        {         
-            var ProID= db.ShoppingCarDetails.AsEnumerable().Where(p => p.ShoppingCarDetialsID == ID).ToList();
-            var q1 = db.PhotoDetails.AsEnumerable().Where(p => p.ProductID == ProID[0].ProductsID).Select(p => new { p.ProductID,p.Photo.Photo1 }).ToList();
+        {
+            var ProID = db.ShoppingCarDetails.AsEnumerable().Where(p => p.ShoppingCarDetialsID == ID).ToList();
+            var q1 = db.PhotoDetails.AsEnumerable().Where(p => p.ProductID == ProID[0].ProductsID).Select(p => new { p.ProductID, p.Photo.Photo1 }).ToList();
 
             byte[] bytes = q1[0].Photo1;
             MemoryStream ms = new MemoryStream(bytes);
@@ -121,13 +121,12 @@ namespace CSPCoffee
         }
         public string theTextOnlabelPrice
         {
-            get { return labelPrice.Text; }
+            get { return labelPrice.Text ; }
             set { labelPrice.Text = value; }
         }
         public string theTextOnlabelCount
         {
-            //get { return labelCount.Text; }
-            get { return this.labelCount.Text = $"{ int.Parse(this.labelPrice.Text) * int.Parse(comboBox1.Text)}"; }
+            get { return this.labelCount.Text = $"{ decimal.Parse(this.labelPrice.Text, System.Globalization.NumberStyles.Currency) * decimal.Parse(comboBox1.Text):c0}"; }
             set { labelCount.Text = value; }
         }
         public string theTextOnlabelmem
@@ -181,10 +180,16 @@ namespace CSPCoffee
             if (thecomoboxChanged != null)
             {
                 thecomoboxChanged(this);
-            }           
-            this.labelCount.Text = $"{ int.Parse(this.labelPrice.Text) * int.Parse(comboBox1.Text)}";
+            }
+            // this.labelCount.Text = $"{ decimal.Parse(this.labelPrice.Text) * decimal.Parse(comboBox1.Text):c0}";
+
+            this.labelCount.Text = $"{ decimal.Parse(this.labelPrice.Text,System.Globalization.NumberStyles.Currency) * decimal.Parse(this.comboBox1.Text):c0}";
+
+
+
+
         }
 
-       
+
     }
 }

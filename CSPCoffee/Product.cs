@@ -17,6 +17,8 @@ namespace CSPCoffee
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            this.Comments = new HashSet<Comment>();
+            this.MyLikes = new HashSet<MyLike>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.PhotoDetails = new HashSet<PhotoDetail>();
             this.ShoppingCarDetails = new HashSet<ShoppingCarDetail>();
@@ -26,21 +28,25 @@ namespace CSPCoffee
         public string ProductName { get; set; }
         public int CategoryID { get; set; }
         public Nullable<int> CountryID { get; set; }
-        public Nullable<double> Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public string Description { get; set; }
         public Nullable<int> Stock { get; set; }
         public Nullable<int> ClickCount { get; set; }
         public bool TakeDown { get; set; }
         public Nullable<double> Star { get; set; }
     
+        public virtual Category Category { get; set; }
+        public virtual Coffee Coffee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Country Country { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MyLike> MyLikes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhotoDetail> PhotoDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCarDetail> ShoppingCarDetails { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual Coffee Coffee { get; set; }
-        public virtual Country Country { get; set; }
     }
 }

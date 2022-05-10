@@ -52,7 +52,7 @@ namespace CSPCoffee
 
             foreach (var ss in q)
             {
-                this.labelPrice.Text = ss.ToString();
+                this.labelPrice.Text = $"{ss:c0}";
             }
         }
         private void LoadlabelNumber(int ID)
@@ -67,9 +67,9 @@ namespace CSPCoffee
         }
         private void LoadlabelCount()
         {
-            int price = int.Parse(this.labelPrice.Text);
+            decimal price = decimal.Parse(this.labelPrice.Text, System.Globalization.NumberStyles.Currency);
             int quantity = int.Parse(labelNumber.Text);
-            this.labelCount.Text = $"{price * quantity}";
+            this.labelCount.Text = $"{price * quantity:c0}";
         }
 
 
@@ -93,6 +93,7 @@ namespace CSPCoffee
         }
         public string theTextOnlabelCount
         {
+            //get { return this.labelCount.Text = $"{ decimal.Parse(this.labelPrice.Text, System.Globalization.NumberStyles.Currency) * decimal.Parse(labelNumber.Text):c0}"; }
             get { return this.labelCount.Text = $"{ int.Parse(this.labelPrice.Text) * int.Parse(labelNumber.Text)}"; }
             set { labelCount.Text = value; }
         }

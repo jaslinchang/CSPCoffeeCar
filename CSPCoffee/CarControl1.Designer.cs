@@ -162,10 +162,10 @@ namespace CSPCoffee
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label labelStock;
-        private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label labelCount;
     }
 }

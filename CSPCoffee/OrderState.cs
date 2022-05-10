@@ -12,23 +12,18 @@ namespace CSPCoffee
     using System;
     using System.Collections.Generic;
     
-    public partial class Country
+    public partial class OrderState
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Country()
+        public OrderState()
         {
-            this.Coffees = new HashSet<Coffee>();
-            this.Products = new HashSet<Product>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int CountryID { get; set; }
-        public string CountryName { get; set; }
-        public int ContinentID { get; set; }
+        public int OrderStateID { get; set; }
+        public string OrderState1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Coffee> Coffees { get; set; }
-        public virtual Continent Continent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

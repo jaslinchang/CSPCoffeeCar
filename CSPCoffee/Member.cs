@@ -17,8 +17,11 @@ namespace CSPCoffee
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Member()
         {
+            this.Comments = new HashSet<Comment>();
             this.CouponDetails = new HashSet<CouponDetail>();
+            this.MyLikes = new HashSet<MyLike>();
             this.Orders = new HashSet<Order>();
+            this.Qquestionnaires = new HashSet<Qquestionnaire>();
         }
     
         public string MemberPhone { get; set; }
@@ -33,9 +36,15 @@ namespace CSPCoffee
         public Nullable<bool> BlackList { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CouponDetail> CouponDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MyLike> MyLikes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Qquestionnaire> Qquestionnaires { get; set; }
         public virtual ShoppingCar ShoppingCar { get; set; }
     }
 }

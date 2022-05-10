@@ -18,16 +18,19 @@ namespace CSPCoffee
         public Coupon()
         {
             this.CouponDetails = new HashSet<CouponDetail>();
+            this.Qquestionnaires = new HashSet<Qquestionnaire>();
         }
     
         public int CouponID { get; set; }
         public string CouponName { get; set; }
-        public int Money { get; set; }
+        public decimal Money { get; set; }
         public int Condition { get; set; }
         public System.DateTime CouponStartDate { get; set; }
         public System.DateTime CouponDeadline { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CouponDetail> CouponDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Qquestionnaire> Qquestionnaires { get; set; }
     }
 }

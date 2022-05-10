@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace CSPCoffee
 {
     public partial class Car1 : Form
-    {
+    {       
         public Car1()
         {
             InitializeComponent();
@@ -25,9 +25,9 @@ namespace CSPCoffee
 
         //TODO.購物車功能(付款方式、出貨方式、加購商品推薦、免運費計算、點數折抵消費金) 09
         CoffeeEntities db = new CoffeeEntities();
-        int memID = 3;  //現在登入的會員編號
-        int Total1= 0;
-      
+        int memID = 1;  //現在登入的會員編號
+        decimal Total1 = 0;
+        CarControl1[] x;
         string Fee;  //運送方式
         string Pay;  //府款方式
         int PayID;  //選擇了哪個付款方式
@@ -35,7 +35,7 @@ namespace CSPCoffee
         string CouponID="";  //CouponID
 
         List<int> Coupon1ID = new List<int>();
-        List<int> Coupon1Money = new List<int>();
+        List<decimal> Coupon1Money = new List<decimal>();
 
         #region Page1
         //載入折價卷
@@ -47,7 +47,7 @@ namespace CSPCoffee
                         
             foreach (var n in q)
             {           
-                listBox1.Items.Add($" {n.CouponName} : 可折抵 {n.Money} 元 ");
+                listBox1.Items.Add($" {n.CouponName} : 可折抵 {n.Money.ToString("#0.")} 元 ");
                 Coupon1Money.Add(n.Money);
                 Coupon1ID.Add(n.CouponID);
             }
@@ -69,18 +69,19 @@ namespace CSPCoffee
             {
                 CarID.Add(n);
             }
-
+            x = new CarControl1[CarID.Count];
+            
             for (int i = 0; i < CarID.Count; i++)
             {
-                CarControl1 x = new CarControl1(CarID[i]);
-                this.flowLayoutPanel1.Controls.Add(x);
-                x.Size = new Size(1470, 100);
-                x.Tag = CarID[i];
-                Total1 += int.Parse(x.theTextOnlabelCount);
-                this.labelfirstcount.Text = Total1.ToString();
-                this.labelTotal1.Text = (Total1 - CouponName).ToString();
-                x.theClick += X_theClick;
-                x.thecomoboxChanged += X_thecomoboxChanged;
+                x[i] = new CarControl1(CarID[i]);
+                this.flowLayoutPanel1.Controls.Add(x[i]);
+                x[i].Size = new Size(1470, 100);
+                x[i].Tag = CarID[i];
+                Total1 += decimal.Parse(x[i].theTextOnlabelCount, System.Globalization.NumberStyles.Currency);
+                this.labelfirstcount.Text = Total1.ToString("#0.");
+                this.labelTotal1.Text = (Total1 - CouponName).ToString("#0.");
+                x[i].theClick += X_theClick;
+                x[i].thecomoboxChanged += X_thecomoboxChanged;
             }
         }
 
@@ -97,11 +98,9 @@ namespace CSPCoffee
                 this.flowLayoutPanel1.Controls.Remove(source);                
                 this.db.ShoppingCarDetails.Remove(product);
 
-                Total1 = Total1 - int.Parse(source.theTextOnlabelCount);
-                this.labelfirstcount.Text = Total1.ToString();
-                //Total1 = int.Parse(labelfirstcount.Text);
-                this.labelTotal1.Text = (int.Parse(labelfirstcount.Text) - CouponName).ToString();
-
+                Total1 = Total1 - decimal.Parse(source.theTextOnlabelCount);
+                this.labelfirstcount.Text = Total1.ToString("#0.");
+                this.labelTotal1.Text = (int.Parse(labelfirstcount.Text) - CouponName).ToString("#0.");
                 MessageBox.Show("刪除成功");
             }
             else if (DialogResult == DialogResult.No)
@@ -113,17 +112,17 @@ namespace CSPCoffee
 
         //修改明細數量時
         private void X_thecomoboxChanged(CarControl1 source)
-        {
-            Total1=Total1- int.Parse(source.theTextOnlabelmem) + int.Parse(source.theTextOnlabelCount);
-            this.labelfirstcount.Text = Total1.ToString();
-            this.labelTotal1.Text = (Total1 - CouponName).ToString();
+        {            
+            Total1 = 0;
+            foreach (var item in x) { Total1 += decimal.Parse(item.theTextOnlabelCount, System.Globalization.NumberStyles.Currency); }
+            this.labelfirstcount.Text = Total1.ToString("#0.");
+            this.labelTotal1.Text = (Total1 - CouponName).ToString("#0.");
 
             var product = (from p in db.ShoppingCarDetails
                            where p.ShoppingCarDetialsID == (int)source.Tag
                            select p).FirstOrDefault();
             if (product == null) return;
-            product.Quantity = (source.theTextOnComboBox1 + 1);            
-
+            product.Quantity = (source.theTextOnComboBox1 + 1);           
         }
         //收合折價卷
         private void button2_Click(object sender, EventArgs e)
@@ -134,9 +133,9 @@ namespace CSPCoffee
         private void button7_Click(object sender, EventArgs e)
         {
             int d = listBox1.SelectedIndex;
-            CouponName = Coupon1Money[d];
+            CouponName = (int)Coupon1Money[d];
             CouponID = Coupon1ID[d].ToString();
-            if (int.Parse(labelfirstcount.Text) < CouponName)
+            if (decimal.Parse(labelfirstcount.Text) < CouponName)
             {
                 MessageBox.Show("不可使用，因折抵金額已小於結帳金額");
             }
@@ -144,7 +143,7 @@ namespace CSPCoffee
             {
                 MessageBox.Show("使用成功!");
                 this.labeldiscount.Text = $"-{CouponName}";
-                this.labelTotal1.Text = (Total1 - CouponName).ToString();
+                this.labelTotal1.Text = (Total1 - CouponName).ToString("#0.");
             }
         }    
 
@@ -296,23 +295,23 @@ namespace CSPCoffee
             this.flowLayoutPanel3.Controls.Clear();       
             this.label3Count.Text = this.labelfirstcount.Text;
             //運費
-            if (int.Parse(labelTotal1.Text) > 1200)
+            if (decimal.Parse(labelTotal1.Text) > 1200)
             {
                 label3Fee.Text = "0";
                 labelFreefee.Visible = true;              
             }
-            else if (int.Parse(labelTotal1.Text) < 1200)
+            else if (decimal.Parse(labelTotal1.Text) < 1200)
             {
                 
                 label3Fee.Text = radioButtonFee1.Tag.ToString();
                 labelFreefee.Visible = false;
             }
             //折價卷
-            if (int.Parse(labeldiscount.Text) ==0)
+            if (decimal.Parse(labeldiscount.Text) ==0)
             {
                 label3discount.Text = "0";
             }
-            else if (int.Parse(labeldiscount.Text) !=0)
+            else if (decimal.Parse(labeldiscount.Text) !=0)
             {
                 label3discount.Text = $"{labeldiscount.Text}";            
             }
@@ -331,8 +330,8 @@ namespace CSPCoffee
                 this.flowLayoutPanel3.Controls.Add(x);
                 x.Size = new Size(1470, 100);
                 x.Tag = Name[i];
-                int Total3 = int.Parse(this.labelTotal1.Text);
-                this.label3FinalTotal.Text = (Total3 + int.Parse(label3Fee.Text)).ToString();
+                decimal Total3 = decimal.Parse(this.labelTotal1.Text);
+                this.label3FinalTotal.Text = (Total3 + int.Parse(label3Fee.Text)).ToString("#0.");
             }          
 
         }
