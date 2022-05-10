@@ -16,8 +16,7 @@ namespace CSPCoffee
         CoffeeEntities db = new CoffeeEntities();
         int PDid;
         public PDcontrol(int productID)
-        {
-            
+        {            
             InitializeComponent();
             PDid=productID;
             

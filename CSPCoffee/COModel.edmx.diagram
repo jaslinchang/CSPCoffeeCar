@@ -40,6 +40,8 @@
         <AssociationConnector Association="CoffeeModel.FK_Coffee_Package" />
         <AssociationConnector Association="CoffeeModel.FK_Coffee_Process" />
         <AssociationConnector Association="CoffeeModel.FK_Coffee_Roasting1" />
+        <EntityTypeShape EntityType="CoffeeModel.Continent" Width="1.5" PointX="2.75" PointY="17.375" />
+        <AssociationConnector Association="CoffeeModel.FK_Country_Continent1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

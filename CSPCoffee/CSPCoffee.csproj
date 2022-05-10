@@ -61,18 +61,6 @@
     <Compile Include="Car1.Designer.cs">
       <DependentUpon>Car1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Car2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Car2.Designer.cs">
-      <DependentUpon>Car2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Car3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Car3.Designer.cs">
-      <DependentUpon>Car3.cs</DependentUpon>
-    </Compile>
     <Compile Include="CarControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>COModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Continent.cs">
+      <DependentUpon>COModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Country.cs">
       <DependentUpon>COModel.tt</DependentUpon>
@@ -202,12 +193,6 @@
     </Compile>
     <EmbeddedResource Include="Car1.resx">
       <DependentUpon>Car1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Car2.resx">
-      <DependentUpon>Car2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Car3.resx">
-      <DependentUpon>Car3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarControl1.resx">
       <DependentUpon>CarControl1.cs</DependentUpon>

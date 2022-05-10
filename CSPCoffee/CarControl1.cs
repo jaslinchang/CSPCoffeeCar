@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,8 @@ namespace CSPCoffee
 
             this.SizeChanged += CarControl1_SizeChanged;
             this.btnDelete.Click += BtnDelete_Click;
-            
+
+            LoadPicture(CarID);
             LoadlabelName(CarID);
             LoadlabelPrice(CarID);
             LoadComobox(CarID);
@@ -34,9 +36,8 @@ namespace CSPCoffee
             LoadlabelCount();
             LoadlabelStock(CarID);
 
-        }
+        }       
 
-  
 
         #region  載入初始值
         private void LoadlabelName(int ID)
@@ -99,7 +100,16 @@ namespace CSPCoffee
                 this.labelStock.Text = ss.ToString();
             }
         }
+        private void LoadPicture(int ID)
+        {         
+            var ProID= db.ShoppingCarDetails.AsEnumerable().Where(p => p.ShoppingCarDetialsID == ID).ToList();
+            var q1 = db.PhotoDetails.AsEnumerable().Where(p => p.ProductID == ProID[0].ProductsID).Select(p => new { p.ProductID,p.Photo.Photo1 }).ToList();
 
+            byte[] bytes = q1[0].Photo1;
+            MemoryStream ms = new MemoryStream(bytes);
+            pictureBox1.Image = Image.FromStream(ms);
+
+        }
         #endregion
 
         # region 發明label屬性            

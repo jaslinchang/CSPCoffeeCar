@@ -26,6 +26,13 @@
           <Property Name="ConstellationID" Type="int" />
           <Property Name="RainForest" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Continent">
+          <Key>
+            <PropertyRef Name="ContinentID" />
+          </Key>
+          <Property Name="ContinentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContinentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryID" />
@@ -223,6 +230,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Country_Continent1">
+          <End Role="Continent" Type="Self.Continent" Multiplicity="1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continent">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="ContinentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CouponDetail_Coupon">
           <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
           <End Role="CouponDetail" Type="Self.CouponDetail" Multiplicity="*" />
@@ -382,6 +401,7 @@
         <EntityContainer Name="CoffeeModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Coffee" EntityType="Self.Coffee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Continent" EntityType="Self.Continent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Coupon" EntityType="Self.Coupon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CouponDetail" EntityType="Self.CouponDetail" Schema="dbo" store:Type="Tables" />
@@ -416,6 +436,10 @@
           <AssociationSet Name="FK_Coffee_Roasting1" Association="Self.FK_Coffee_Roasting1">
             <End Role="Roasting" EntitySet="Roasting" />
             <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_Continent1" Association="Self.FK_Country_Continent1">
+            <End Role="Continent" EntitySet="Continent" />
+            <End Role="Country" EntitySet="Country" />
           </AssociationSet>
           <AssociationSet Name="FK_CouponDetail_Coupon" Association="Self.FK_CouponDetail_Coupon">
             <End Role="Coupon" EntitySet="Coupon" />
@@ -809,6 +833,11 @@
             <End Role="Roasting" EntitySet="Roastings" />
             <End Role="Coffee" EntitySet="Coffees" />
           </AssociationSet>
+          <EntitySet Name="Continents" EntityType="CoffeeModel.Continent" />
+          <AssociationSet Name="FK_Country_Continent1" Association="CoffeeModel.FK_Country_Continent1">
+            <End Role="Continent" EntitySet="Continents" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Payment">
           <Key>
@@ -866,6 +895,7 @@
           <Property Name="ContinentID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Coffees" Relationship="CoffeeModel.FK_Coffee_Country" FromRole="Country" ToRole="Coffee" />
           <NavigationProperty Name="Products" Relationship="CoffeeModel.FK_Products_Country" FromRole="Country" ToRole="Product" />
+          <NavigationProperty Name="Continent" Relationship="CoffeeModel.FK_Country_Continent1" FromRole="Country" ToRole="Continent" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Type="CoffeeModel.Category" Role="Category" Multiplicity="1" />
@@ -972,6 +1002,26 @@
             </Principal>
             <Dependent Role="Coffee">
               <PropertyRef Name="RoastingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Continent">
+          <Key>
+            <PropertyRef Name="ContinentID" />
+          </Key>
+          <Property Name="ContinentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContinentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Countries" Relationship="CoffeeModel.FK_Country_Continent1" FromRole="Continent" ToRole="Country" />
+        </EntityType>
+        <Association Name="FK_Country_Continent1">
+          <End Type="CoffeeModel.Continent" Role="Continent" Multiplicity="1" />
+          <End Type="CoffeeModel.Country" Role="Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continent">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="ContinentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1153,6 +1203,14 @@
               <MappingFragment StoreEntitySet="Roasting">
                 <ScalarProperty Name="RoastingName" ColumnName="RoastingName" />
                 <ScalarProperty Name="RoastingID" ColumnName="RoastingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Continents">
+            <EntityTypeMapping TypeName="CoffeeModel.Continent">
+              <MappingFragment StoreEntitySet="Continent">
+                <ScalarProperty Name="ContinentName" ColumnName="ContinentName" />
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

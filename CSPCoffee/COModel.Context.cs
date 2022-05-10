@@ -42,5 +42,6 @@ namespace CSPCoffee
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Process> Processes { get; set; }
         public virtual DbSet<Roasting> Roastings { get; set; }
+        public virtual DbSet<Continent> Continents { get; set; }
     }
 }
