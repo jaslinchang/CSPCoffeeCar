@@ -28,7 +28,7 @@ namespace CSPCoffee
             this.SizeChanged += CarControl1_SizeChanged;
             this.btnDelete.Click += BtnDelete_Click;
 
-            LoadPicture(CarID);
+            //LoadPicture(CarID);
             LoadlabelName(CarID);
             LoadlabelPrice(CarID);
             LoadComobox(CarID);

@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace CSPCoffee
 {
+    public delegate void TheButtonClick1(PDcontrol source);
     public partial class PDcontrol : UserControl
     {
         CoffeeEntities db = new CoffeeEntities();
+        public event TheButtonClick1 theClick = null;
         int PDid;
         public PDcontrol(int productID)
         {            
@@ -42,15 +44,18 @@ namespace CSPCoffee
         }
         private void PDcontrol_Click(object sender, EventArgs e)
         {
-
             PDcontrol product = (PDcontrol)sender;
-
             Productdetail pd = new Productdetail(product.PDid);
             pd.Location = new Point(300, 300);
             pd.Show();
-
-
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (theClick != null)
+            {
+                theClick(this);
+            }
+        }
     }
 }

@@ -72,9 +72,6 @@ namespace CSPCoffee
             this.labelCount.Text = $"{price * quantity:c0}";
         }
 
-
-
-
         #region 發明label屬性            
         public string theTextOnlabelName
         {
