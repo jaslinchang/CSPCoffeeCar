@@ -34,7 +34,7 @@ namespace CSPCoffee
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,22 +88,22 @@ namespace CSPCoffee
             this.flowLayoutPanel1.Size = new System.Drawing.Size(194, 28);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(103, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 37);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "加入購物車";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button3.Location = new System.Drawing.Point(103, 167);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(76, 37);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "加入購物車";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button1_Click);
             // 
             // PDcontrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -125,6 +125,6 @@ namespace CSPCoffee
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button3;
     }
 }

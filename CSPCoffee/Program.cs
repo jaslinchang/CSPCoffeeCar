@@ -22,8 +22,8 @@ namespace CSPCoffee
             //int productID = 1;
             //Application.Run(new Productdetail(productID));
 
+            //Application.Run(new Form1());
             Application.Run(new Car1());
-            //Application.Run(new Car2());
         }
     }
 }

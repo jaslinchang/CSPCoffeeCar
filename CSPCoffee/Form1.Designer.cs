@@ -31,6 +31,7 @@ namespace CSPCoffee
         {
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,6 +72,7 @@ namespace CSPCoffee
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel1.Controls.Add(this.btnCart);
             this.splitContainer1.Panel1.Controls.Add(this.btnMem);
@@ -82,6 +84,15 @@ namespace CSPCoffee
             this.splitContainer1.Size = new System.Drawing.Size(1904, 1041);
             this.splitContainer1.SplitterDistance = 296;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1760, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 14);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "0";
             // 
             // tableLayoutPanel1
             // 
@@ -175,6 +186,7 @@ namespace CSPCoffee
             this.btnCart.TabIndex = 2;
             this.btnCart.Text = "購物車";
             this.btnCart.UseVisualStyleBackColor = true;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnMem
             // 
@@ -261,6 +273,7 @@ namespace CSPCoffee
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

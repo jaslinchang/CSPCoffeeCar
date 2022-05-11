@@ -14,36 +14,35 @@ namespace CSPCoffee
     public partial class Car1 : Form
     {       
         public Car1()
-        {
+        {            
             InitializeComponent();
             LoadCar();
             LoadCouponToListbox();
             LoadAddproducts();
+            this.tabPage1.Parent = this.tabControl1;//顯示
+            this.tabPage2.Parent = null;//隱藏
+            this.tabPage3.Parent = null;//隱藏                
 
-            //this.tabPage1.Parent = this.tabControl1;//顯示
-            //this.tabPage2.Parent = null;//隱藏
-            //this.tabPage3.Parent = null;//隱藏
-        }       
+        }
 
-        //TODO.購物車功能(付款方式、出貨方式、加購商品推薦、免運費計算、點數折抵消費金) 09
+        //Form1 f1;
+        //f1 = (Form1) Application.OpenForms["Form1"];
+
         CoffeeEntities db = new CoffeeEntities();
-        int memID =4;  //現在登入的會員編號
+        int memID = 4;  //現在登入的會員編號
         decimal DELE = 0;  //紀錄已刪除的價錢
         decimal Total1 = 0;
         CarControl1[] x;
         PDcontrol [] y;
         string Fee;  //運送方式
-        string Pay;  //府款方式
+        string Pay;  //付款方式
         int PayID;  //選擇了哪個付款方式
         int CouponName;     //CouponName
-        string CouponID="";  //CouponID
-        int AddCarID1; //記下加入購物車的產品編號
-        int AddCarID2;
-        int AddCarID3;
+        string CouponID="";  //CouponID      
         List<int> CarID;
         List<int> Coupon1ID = new List<int>();
         List<decimal> Coupon1Money = new List<decimal>();
-
+        
         #region Page1
         //載入折價卷
         private void LoadCouponToListbox()
@@ -63,7 +62,7 @@ namespace CSPCoffee
         }
         //抓該會員的購物明細
         private void LoadCar()
-        {
+        {          
             this.flowLayoutPanel1.Controls.Clear();
             Total1 = 0;
             var q = from s in db.ShoppingCarDetails
@@ -90,14 +89,15 @@ namespace CSPCoffee
                 x[i].theClick += X_theClick;
                 x[i].thecomoboxChanged += X_thecomoboxChanged;
             }
-        }     
+           
+        }
         //刪除明細時
         private void X_theClick(CarControl1 source)
-        {                 
+        {
             var product = (from p in db.ShoppingCarDetails
                            where p.ShoppingCarDetialsID == (int)source.Tag
                            select p).FirstOrDefault();
-                                
+
             DialogResult = MessageBox.Show("確定刪除此筆訂單?", "刪除訂單", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult == DialogResult.Yes)
             {
@@ -154,19 +154,6 @@ namespace CSPCoffee
                 this.labelTotal1.Text = (Total1 - CouponName).ToString("#0.");
             }
         }    
-        //下一頁(到第二頁)
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //this.tabPage1.Parent = null;//隱藏
-            //this.tabPage2.Parent = this.tabControl1;//顯示
-            //this.tabPage3.Parent = null;//隱藏
-            tabControl1.SelectedTab = tabControl1.TabPages[1];
-      
-
-            this.db.SaveChanges();    
-            LoadMemberInformation();
-            LoadFeeRadioBox();     
-        }
         //推薦加購商品
         private void LoadAddproducts()
         {
@@ -199,17 +186,7 @@ namespace CSPCoffee
             }
                         
             if (c1==true&&c2==false)     //只有買咖啡
-            {
-                //Random rng = new Random(Guid.NewGuid().GetHashCode());
-                //var qr = db.Products.AsEnumerable().Where(p => p.CategoryID != 1 && hasExisted(p.ProductID, ProID)).OrderByDescending(x => rng.Next()).Select(p => p.ProductID).Take(1).ToList();
-                //PDcontrol recommend1 = new PDcontrol(qr[0]);
-                //flowLayoutPanel2.Controls.Add(recommend1);
-                //recommend1.theClick += Recommend1_theClick;
-                //foreach (int n in qr)
-                //{
-                //    AddCarID1 = int.Parse(n.ToString());
-                //}
-                //=======================================
+            {                
                 Random rng = new Random(Guid.NewGuid().GetHashCode());
                 var qr = db.Products.AsEnumerable().Where(p => p.CategoryID != 1 && hasExisted(p.ProductID, ProID)).OrderByDescending(x => rng.Next()).Select(p => p.ProductID).Take(3).ToList();
                 y = new PDcontrol[qr.Count];
@@ -248,35 +225,13 @@ namespace CSPCoffee
                 {
                     y[i] = new PDcontrol(qr[i]);
                     flowLayoutPanel2.Controls.Add(y[i]);
+                    y[i].Margin = new Padding(35,20,35,20);
                     y[i].Tag = qr[i];
                     y[i].theClick += Car1_theClick3;
                 }
-
-            }
-
-            #region
-            //int pID = 2;
-            ////烘培方式
-            //Random rng = new Random(Guid.NewGuid().GetHashCode());
-            //var r1 = db.Products.Where(p => p.ProductID == pID).Select(x => new { x.Coffee.RoastingID }).ToList();
-            //var qr = db.Coffees.AsEnumerable().Where(p => p.RoastingID == r1[0].RoastingID && p.ProductID != pID).OrderByDescending(x => rng.Next()).Select(p => p.ProductID).Take(1).ToList();
-            //PDcontrol recommend1 = new PDcontrol(qr[0]);
-            //flowLayoutPanel2.Controls.Add(recommend1);
-
-            ////製作法
-            //var r2 = db.Products.Where(p => p.ProductID == pID).Select(x => new { x.Coffee.ProcessID }).ToList();
-            //qr = db.Coffees.AsEnumerable().Where(p => p.ProcessID == r2[0].ProcessID && p.ProductID != pID).OrderByDescending(x => rng.Next()).Select(p => p.ProductID).Take(1).ToList();
-            //PDcontrol recommend2 = new PDcontrol(qr[0]);
-            //flowLayoutPanel2.Controls.Add(recommend2);
-
-            ////國家
-            //var r3 = db.Products.Where(p => p.ProductID == pID).Select(x => new { x.Coffee.Country.ContinentID }).ToList();
-            //qr = db.Coffees.AsEnumerable().Where(p => p.Country.Continent.ContinentID == r3[0].ContinentID && p.ProductID != pID).OrderByDescending(x => rng.Next()).Select(p => p.ProductID).Take(1).ToList();
-            //PDcontrol recommend3 = new PDcontrol(qr[0]);
-            //flowLayoutPanel2.Controls.Add(recommend3);            
-            #endregion
+            }      
+            
         }
-
         //推薦商品加入購物車
         private void Car1_theClick1(PDcontrol source)
         {
@@ -302,45 +257,24 @@ namespace CSPCoffee
             MessageBox.Show("新增至購物車成功!");
             LoadCar();
         }
-
-
-
-
-
-
-
-        //private void Recommend1_theClick(PDcontrol source)
-        //{
-        //    ShoppingCarDetail carDetail = new ShoppingCarDetail { MemberID = memID, ProductsID = AddCarID1, Quantity = 1 };
-        //    this.db.ShoppingCarDetails.Add(carDetail);
-        //    this.db.SaveChanges();
-        //    MessageBox.Show("新增至購物車成功!");
-        //    LoadCar();
-        //}
-        //private void Recommend2_theClick(PDcontrol source)
-        //{
-        //    ShoppingCarDetail carDetail = new ShoppingCarDetail { MemberID = memID, ProductsID = AddCarID2, Quantity = 1 };
-        //    this.db.ShoppingCarDetails.Add(carDetail);
-        //    this.db.SaveChanges();
-        //    MessageBox.Show("新增至購物車成功!");
-        //    LoadCar();
-        //}
-        //private void Recommend3_theClick(PDcontrol source)
-        //{
-        //    ShoppingCarDetail carDetail = new ShoppingCarDetail { MemberID = memID, ProductsID = AddCarID3, Quantity = 1 };
-        //    this.db.ShoppingCarDetails.Add(carDetail);
-        //    this.db.SaveChanges();
-        //    MessageBox.Show("新增至購物車成功!");
-        //    LoadCar();
-        //}
-
         //判斷重複商品
         private bool hasExisted(int p, List<int> id)
         {
             if (id.Contains(p)) return false;
             return true;
         }
+        //下一頁(到第二頁)
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.tabPage1.Parent = null;//隱藏
+            this.tabPage2.Parent = this.tabControl1;//顯示
+            this.tabPage3.Parent = null;//隱藏
 
+            this.db.SaveChanges();    
+            LoadMemberInformation();
+            LoadFeeRadioBox();     
+        }
+       
         #endregion
 
         #region  Page2
@@ -366,7 +300,6 @@ namespace CSPCoffee
                 this.txtAddress.Text = a.Address;
             }
         }
-
         private void LoadFeeRadioBox()
         {
             var q = from p in db.Payments
@@ -407,27 +340,23 @@ namespace CSPCoffee
         }     
         private void button3_Click(object sender, EventArgs e)
         {
-            //this.tabPage1.Parent = this.tabControl1;//顯示
-            //this.tabPage2.Parent = null;//隱藏
-            //this.tabPage3.Parent = null;//隱藏
-            tabControl1.SelectedTab = tabControl1.TabPages[0];        
+            this.tabPage1.Parent = this.tabControl1;//顯示
+            this.tabPage2.Parent = null;//隱藏
+            this.tabPage3.Parent = null;//隱藏
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (Pay == null) { MessageBox.Show("請選擇付款方式!"); }
             else if (Fee == null) { MessageBox.Show("請選擇配送方式!"); }
             else
             {
-                //this.tabPage1.Parent = null;//隱藏
-                //this.tabPage2.Parent = null;//隱藏
-                //this.tabPage3.Parent = this.tabControl1;//顯示
-                tabControl1.SelectedTab = tabControl1.TabPages[2];         
+                this.tabPage1.Parent = null;//隱藏
+                this.tabPage2.Parent = null;//隱藏
+                this.tabPage3.Parent = this.tabControl1;//顯示
                 LoadFinalMoney();
                 LoadFinalShip();
             }          
         }     
-
 
         #endregion
 
@@ -490,14 +419,13 @@ namespace CSPCoffee
 
         private void button9_Click(object sender, EventArgs e)
         {
-            //this.tabPage1.Parent = null;//隱藏
-            //this.tabPage2.Parent = this.tabControl1;//顯示
-            //this.tabPage3.Parent = null;//隱藏
-            tabControl1.SelectedTab = tabControl1.TabPages[1];
+            this.tabPage1.Parent = null;//隱藏
+            this.tabPage2.Parent = this.tabControl1;//顯示
+            this.tabPage3.Parent = null;//隱藏
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            ////Orders
+            #region Orders
             string dd = DateTime.Now.ToString("yyyy-MM-dd");
             DateTime dt = new DateTime();
             dt = Convert.ToDateTime(dd);
@@ -505,8 +433,9 @@ namespace CSPCoffee
             this.db.Orders.Add(order);
 
             this.db.SaveChanges();
+            #endregion
 
-            //OrderDetails
+            #region OrderDetails
             Thread.Sleep(1000);
             var q1 = (from o in db.Orders
                       select o.OrderID).ToList().Last();
@@ -530,16 +459,31 @@ namespace CSPCoffee
                 OrderDetail orderDetail = new OrderDetail { OrderID = q1, ProductID = Pid, Quantity = Qid };
                 this.db.OrderDetails.Add(orderDetail);
             }
-
             this.db.SaveChanges();
             MessageBox.Show("已送出訂單");
+            #endregion
+
+            #region Delete ShoppingDetail
+            var d = db.ShoppingCarDetails.Where(p => p.MemberID == memID).Select(p => p);
+
+            List<ShoppingCarDetail> Del = new List<ShoppingCarDetail>();
+            foreach (var a in d) { Del.Add(a); }
+            for (int i = 0; i < d.Count(); i++)
+            {
+                if (d == null) return;
+                db.ShoppingCarDetails.Remove(Del[i]);
+            }
+            db.SaveChanges();
+
+            #endregion
+
+            this.Close();
 
         }
 
 
-
         #endregion
 
-  
+
     }
 }
